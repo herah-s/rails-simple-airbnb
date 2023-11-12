@@ -1,21 +1,33 @@
-<h1>All our Flats (<%= @flats.size %>)</h1>
+<div class='container'>
+<% if params[:query].blank? %>
+  <h1>All our Flats (<%= @flats.size %>)</h1>
+<% else %>
+  <h1>Search Results (<%= @flats.size %>)</h1>
+  <p>You searched for "<%= params[:query] %>". We found <%= @flats.count %>  flats out of <%= Flat.all.count %> on our website.</p>
+<% end %>
 
 <div class="row row-cols-1 row-cols-md-4 g-4">
   <% @flats.each do |flat| %>
       <div class="col">
     <div class="card h-100">
+    <div class="card-banner" style="background-image: url('<%= flat.image_url %>')"></div>
       <div class="card-body">
         <h5 class="card-title"><%= flat.name %></h5>
         <p class="card-text"><%= flat.address %></p>
-        <div class="mx-2">
-        <i class="fa-solid fa-user-group"><%= flat.number_of_guests %></i>
-        <i class="fa-solid fa-yen-sign"><%= flat.price_per_night %></i>
+      </div>
+      <div class="card-footer">
+       <div class="mx-2 d-flex gap-2">
+          <div class="info-icon"><i class="fa-solid fa-user-group"></i><%= flat.number_of_guests %></div>
+          <div class="info-icon"><i class="fa-solid fa-yen-sign"></i><%= flat.price_per_night %></div>
         </div>
       </div>
       <div class="card-footer">
-        <small class="text-body-secondary"><%= link_to 'More info', flat_path(flat) %></small>
+        <small class="text-body-secondary"><%= link_to 'More info', flat_path(flat) %><p class="d-inline"> | </p></small>
+        <small class="text-body-secondary"><%= link_to 'Edit', edit_flat_path(flat) %><p class="d-inline"> | </p></small>
+        <small class="text-body-secondary"><%= link_to 'Delete', flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></small>
       </div>
     </div>
   </div>
   <% end %>
+</div>
 </div>

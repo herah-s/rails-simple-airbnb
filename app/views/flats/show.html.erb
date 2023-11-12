@@ -1,1 +1,45 @@
-<h1><%= @flat.name %></h1>
+<div class="banner" style="background-image: url('<%= @flat.image_url %>')"></div>
+
+<div class='container d-flex flex-space-evenly gap-4'>
+  <div class="flat-info">
+    <div class="flat-address">
+      <h1><%= @flat.name %></h1>
+      <p><%= @flat.address %></p>
+    </div>
+    <div class="flat-desc">
+      <h2>About this flat</h2>
+      <p><%= @flat.description %></p>
+    </div>
+    <div class="flat-details">
+      <h2>Detais</h2>
+      <div class="mx-2 d-flex gap-2">
+        <div class="info-icon"><i class="fa-solid fa-user-group"></i><%= @flat.number_of_guests %></div>
+        <div class="info-icon"><i class="fa-solid fa-yen-sign"></i><%= @flat.price_per_night %></div>
+      </div>
+    </div>
+  </div>
+  <div class="book-flat">
+      <div class="book-dates">
+        <h5 class="card-title">Book this flat</h5>
+        <form action="#">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="Datefrom">From:</span>
+            <input type="date" class="form-control" aria-label="Datefrom" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="Dateto">To:</span>
+            <input type="date" class="form-control" aria-label="Dateto" aria-describedby="basic-addon2">
+          </div>
+          <a class="btn btn-success w-100" href="#">Book!</a>
+        </form>
+    </div>
+      <div class="share d-flex gap-5 flex-space-between align-items-center">
+        <div><h5>Share</h5></div>
+        <div><h5>
+          <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-square-pinterest"></i></a>
+          <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+        </h5></div>
+    </div>
+  </div>
+</div>
