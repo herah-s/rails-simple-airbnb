@@ -1,12 +1,3 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
 puts 'Cleaning db...'
 Flat.destroy_all
 
@@ -56,6 +47,15 @@ Flat.create!(
   price_per_night: 300,
   number_of_guests: 4,
   image_url: 'https://images.unsplash.com/photo-1575517111478-7f6afd0973db?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+)
+
+Flat.create!(
+  name: 'Farm stay in Maidenwells, United Kingdom"',
+  address: '"Maidenwells, Wales, United Kingdom',
+  description: 'This is a stylish log cabin located in a pristine wooded area at an altitude of 1,300 meters (4,265 feet) in Iizuna, Nagano. The home is the perfect retreat for couples, families or small groups.',
+  price_per_night: 5500,
+  number_of_guests: 2,
+  image_url: 'https://images.unsplash.com/photo-1503174971373-b1f69850bded?q=80&w=2713&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 )
 
 puts 'Done!'
