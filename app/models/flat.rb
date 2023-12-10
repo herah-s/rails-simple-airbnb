@@ -1,4 +1,5 @@
 class Flat < ApplicationRecord
+  self.table_name = "airbnb_flats"
   validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true
